@@ -4,6 +4,7 @@ import com.sap.scholar.springdemo.model.Employee;
 import com.sap.scholar.springdemo.service.EmployeeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,4 +30,11 @@ public class EmployeeController {
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         return ResponseEntity.ok(employeeService.saveEmployee(employee));
     }
+
+    @GetMapping("/employees/{name}")
+    public ResponseEntity<Employee> getEmployeeByName
+            (@PathVariable(value = "name") final String name){
+        return ResponseEntity.ok(employeeService.getEmployeeByName(name));
+    }
+
 }

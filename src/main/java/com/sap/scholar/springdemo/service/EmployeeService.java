@@ -19,4 +19,8 @@ public class EmployeeService {
     public Employee saveEmployee(final Employee employee) {
         return employeeRepository.save(employee);
     }
+
+    public Employee getEmployeeByName(final String name){
+        return employeeRepository.getEmployeeByName(name);
+    }
 }
