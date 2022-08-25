@@ -1,5 +1,6 @@
 package com.sap.scholar.springdemo.controller;
 
+import com.sap.scholar.springdemo.dto.EmployeeResponse;
 import com.sap.scholar.springdemo.model.Employee;
 import com.sap.scholar.springdemo.service.EmployeeService;
 import org.springframework.http.ResponseEntity;
@@ -32,8 +33,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/employees/{name}")
-    public ResponseEntity<Employee> getEmployeeByName
-            (@PathVariable(value = "name") final String name){
+    public ResponseEntity<EmployeeResponse> getEmployeeByName(@PathVariable(value = "name") final String name) {
         return ResponseEntity.ok(employeeService.getEmployeeByName(name));
     }
 

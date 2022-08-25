@@ -1,5 +1,6 @@
 package com.sap.scholar.springdemo.service;
 
+import com.sap.scholar.springdemo.dto.EmployeeResponse;
 import com.sap.scholar.springdemo.model.Employee;
 import com.sap.scholar.springdemo.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +21,12 @@ public class EmployeeService {
         return employeeRepository.save(employee);
     }
 
-    public Employee getEmployeeByName(final String name){
-        return employeeRepository.getEmployeeByName(name);
+    public EmployeeResponse getEmployeeByName(final String name) {
+        Employee employee = employeeRepository.getEmployeeByName(name);
+        EmployeeResponse response = new EmployeeResponse();
+        response.setName(employee.getName());
+        response.setName(employee.getName());
+        response.setAge(employee.getAge());
+        return response;
     }
 }
